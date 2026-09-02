@@ -1,5 +1,5 @@
 {
   "appId": "com.vyron.game",
   "appName": "Vyron Game",
-  "webDir": "www"
+  "webDir": "."
 }
