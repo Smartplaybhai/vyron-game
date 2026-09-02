@@ -17,6 +17,8 @@ jobs:
       - run: npx cap sync android
       - name: Copy custom icons
         run: |
+          rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+          rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
           cp icons/icon-512.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
           cp icons/icon-512.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
           cp icons/icon-192.png android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
