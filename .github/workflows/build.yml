@@ -31,6 +31,8 @@ jobs:
           cp icons/icon-192.png android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png
           cp icons/icon-192.png android/app/src/main/res/mipmap-mdpi/ic_launcher.png
           cp icons/icon-192.png android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+          mkdir -p android/app/src/main/res/drawable-land
+          mkdir -p android/app/src/main/res/drawable-port
           cp icons/splash.png android/app/src/main/res/drawable/splash.png
           cp icons/splash.png android/app/src/main/res/drawable-land/splash.png
           cp icons/splash.png android/app/src/main/res/drawable-port/splash.png
