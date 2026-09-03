@@ -1,5 +1,11 @@
 {
   "appId": "com.vyron.orbex",
   "appName": "Orbex",
-  "webDir": "www"
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "launchAutoHide": true
+    }
+  }
 }
