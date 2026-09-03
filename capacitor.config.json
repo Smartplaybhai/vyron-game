@@ -4,8 +4,11 @@
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0,
-      "launchAutoHide": true
+      "launchShowDuration": 1500,
+      "launchAutoHide": true,
+      "backgroundColor": "#0a1128",
+      "androidScaleType": "CENTER_CROP",
+      "splashImmersive": true
     }
   }
 }
