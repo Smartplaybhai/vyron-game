@@ -27,6 +27,16 @@ jobs:
         run: |
           cp google-services.json android/app/google-services.json
 
+      - name: Add Google Web Client ID to strings.xml
+        run: |
+          mkdir -p android/app/src/main/res/values
+          cat > android/app/src/main/res/values/google_client_id.xml << 'EOF'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <string name="default_web_client_id">94072836496-kvs8fcq967lutdnq3tqogv8et6sqp91h.apps.googleusercontent.com</string>
+          </resources>
+          EOF
+
       - name: Copy custom icons
         run: |
           rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
