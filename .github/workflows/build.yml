@@ -23,6 +23,10 @@ jobs:
             cp debug.keystore ~/.android/debug.keystore
           fi
 
+      - name: Print SHA1 fingerprint
+        run: |
+          keytool -list -v -keystore debug.keystore -storepass android -alias androiddebugkey
+
       - name: Copy custom icons
         run: |
           rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
