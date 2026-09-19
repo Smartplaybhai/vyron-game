@@ -9,6 +9,10 @@
       "backgroundColor": "#0a1128",
       "androidScaleType": "CENTER_CROP",
       "splashImmersive": true
+    },
+    "FirebaseAuthentication": {
+      "skipNativeAuth": false,
+      "providers": ["google.com"]
     }
   }
 }
