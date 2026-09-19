@@ -15,6 +15,22 @@ jobs:
       - run: npm install
       - run: npx cap add android
       - run: npx cap sync android
+
+      - name: Generate fixed debug keystore (ONE TIME ONLY - remove after first successful run)
+        run: |
+          keytool -genkeypair -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: debug-keystore
+          path: debug.keystore
+
+      - name: Use fixed debug keystore
+        run: |
+          mkdir -p ~/.android
+          if [ -f debug.keystore ]; then
+            cp debug.keystore ~/.android/debug.keystore
+          fi
+
       - name: Copy custom icons
         run: |
           rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
@@ -36,13 +52,16 @@ jobs:
           cp icons/splash.png android/app/src/main/res/drawable/splash.png
           cp icons/splash.png android/app/src/main/res/drawable-land/splash.png
           cp icons/splash.png android/app/src/main/res/drawable-port/splash.png
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
+
       - name: Build APK
         working-directory: android
         run: chmod +x gradlew && ./gradlew assembleDebug
+
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
