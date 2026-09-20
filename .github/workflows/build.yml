@@ -34,7 +34,12 @@ jobs:
           cp debug.keystore android/app/debug.keystore
           sed -i "/^android {/a\\    signingConfigs {\\n        debug {\\n            storeFile file('debug.keystore')\\n            storePassword 'android'\\n            keyAlias 'androiddebugkey'\\n            keyPassword 'android'\\n        }\\n    }" android/app/build.gradle
           sed -i "/buildTypes {/a\\        debug {\\n            signingConfig signingConfigs.debug\\n        }" android/app/build.gradle
-          cat android/app/build.gradle
+
+      - name: Add AdMob App ID to AndroidManifest
+        run: |
+          sed -i 's#<application#<application><meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-2519831355714403~9707013325"/>#' android/app/src/main/AndroidManifest.xml
+          sed -i 's#</application></meta-data>#</meta-data></application>#' android/app/src/main/AndroidManifest.xml
+          cat android/app/src/main/AndroidManifest.xml
 
       - name: Copy custom icons
         run: |
