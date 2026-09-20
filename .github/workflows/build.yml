@@ -32,28 +32,9 @@ jobs:
       - name: Force explicit debug signing config
         run: |
           cp debug.keystore android/app/debug.keystore
-          python3 - << 'PYEOF'
-          import re
-          path = "android/app/build.gradle"
-          content = open(path).read()
-          signing_block = """    signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-        }
-    }
-"""
-          content = content.replace("    buildTypes {", signing_block + "    buildTypes {", 1)
-          content = content.replace(
-              "        release {",
-              "        debug {\n            signingConfig signingConfigs.debug\n        }\n        release {",
-              1
-          )
-          open(path, "w").write(content)
-          print(content)
-          PYEOF
+          sed -i "/^android {/a\\    signingConfigs {\\n        debug {\\n            storeFile file('debug.keystore')\\n            storePassword 'android'\\n            keyAlias 'androiddebugkey'\\n            keyPassword 'android'\\n        }\\n    }" android/app/build.gradle
+          sed -i "/buildTypes {/a\\        debug {\\n            signingConfig signingConfigs.debug\\n        }" android/app/build.gradle
+          cat android/app/build.gradle
 
       - name: Copy custom icons
         run: |
