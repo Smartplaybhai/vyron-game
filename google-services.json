@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "94072836496",
+    "firebase_url": "https://blackboardbrawl-default-rtdb.firebaseio.com",
+    "project_id": "blackboardbrawl",
+    "storage_bucket": "blackboardbrawl.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94072836496:android:c2e24d3fac83f51a26a315",
+        "android_client_info": {
+          "package_name": "com.vyron.orbex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94072836496-u7b82f3pv98uibrrcv9aj54iu6ojrdbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vyron.orbex",
+            "certificate_hash": "635492a3038d1d1fb8910a36991aeef3e0fffa7b"
+          }
+        },
+        {
+          "client_id": "94072836496-kvs8fcq967lutdnq3tqogv8et6sqp91h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVpUj56YmRKTM1vioYrv6bjF8Ucd1XegU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94072836496-kvs8fcq967lutdnq3tqogv8et6sqp91h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
