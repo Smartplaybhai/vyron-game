@@ -58,6 +58,9 @@ jobs:
           cp icons/splash.png android/app/src/main/res/drawable-land/splash.png
           cp icons/splash.png android/app/src/main/res/drawable-port/splash.png
 
+      - name: Print applicationId
+        run: cat android/app/build.gradle
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
