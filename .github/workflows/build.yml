@@ -36,8 +36,6 @@ jobs:
         run: |
           sed -i "/^dependencies {/a\\    implementation 'com.google.android.gms:play-services-auth:21.2.0'" android/app/build.gradle
 
-      - 
-
       - name: Copy custom icons
         run: |
           rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
