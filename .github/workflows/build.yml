@@ -32,6 +32,10 @@ jobs:
           sed -i "s/classpath 'com.android.tools.build:gradle:.*'/&\n        classpath 'com.google.gms:google-services:4.4.2'/" android/build.gradle
           sed -i "0,/apply plugin: 'com.android.application'/s//&\napply plugin: 'com.google.gms.google-services'/" android/app/build.gradle
 
+      - name: Add Google Sign-In dependency
+        run: |
+          sed -i "/^dependencies {/a\\    implementation 'com.google.android.gms:play-services-auth:21.2.0'" android/app/build.gradle
+
       - name: Add Google Web Client ID to strings.xml
         run: |
           mkdir -p android/app/src/main/res/values
